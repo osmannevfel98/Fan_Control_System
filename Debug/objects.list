@@ -1,0 +1,8 @@
+"./Src/adc.o"
+"./Src/fan_controller.o"
+"./Src/isr.o"
+"./Src/main.o"
+"./Src/pwm.o"
+"./Src/syscalls.o"
+"./Src/sysmem.o"
+"./Startup/startup_stm32f100rbtx.o"
