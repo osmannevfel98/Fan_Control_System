@@ -1,0 +1,37 @@
+/*
+ * base.h
+ *
+ *  Created on: Aug 4, 2025
+ *      Author: osmannevfelunlu
+ */
+
+#ifndef BASE_H_
+#define BASE_H_
+
+#define PERIPH_BASE         (0x40000000)
+
+#define APB1_PERIPH_OFFSET  (0x0000)
+#define APB1_PERIPH         (PERIPH_BASE + APB1_PERIPH_OFFSET)
+
+#define APB2_PERIPH_OFFSET  (0x10000)
+#define APB2_PERIPH         (PERIPH_BASE + APB2_PERIPH_OFFSET)
+
+#define AHB_PERIPH_OFFSET   (0x20000)
+#define AHB_PERIPH          (PERIPH_BASE + AHB_PERIPH_OFFSET)
+
+#define RCC_PERIPH_OFFSET   (0x1000)
+#define RCC_PERIPH          (AHB_PERIPH + RCC_PERIPH_OFFSET)
+
+#define TIM4_PERIPH_OFFSET  (0x0800)
+#define TIM4_PERIPH         (APB1_PERIPH + TIM4_PERIPH_OFFSET)
+
+#define GPIOA_PERIPH_OFFSET (0x0800)
+#define GPIOA_PERIPH        (APB2_PERIPH + GPIOA_PERIPH_OFFSET)
+
+#define GPIOB_PERIPH_OFFSET (0x0C00)
+#define GPIOB_PERIPH        (APB2_PERIPH + GPIOB_PERIPH_OFFSET)
+
+#define ADC1_PERIPH_OFFSET  (0x2400)
+#define ADC1_PERIPH         (APB2_PERIPH + ADC1_PERIPH_OFFSET)
+
+#endif /* BASE_H_ */

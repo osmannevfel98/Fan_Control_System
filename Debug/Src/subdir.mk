@@ -10,6 +10,7 @@ C_SRCS += \
 ../Src/isr.c \
 ../Src/main.c \
 ../Src/pwm.c \
+../Src/rcc.c \
 ../Src/syscalls.c \
 ../Src/sysmem.c 
 
@@ -19,6 +20,7 @@ OBJS += \
 ./Src/isr.o \
 ./Src/main.o \
 ./Src/pwm.o \
+./Src/rcc.o \
 ./Src/syscalls.o \
 ./Src/sysmem.o 
 
@@ -28,6 +30,7 @@ C_DEPS += \
 ./Src/isr.d \
 ./Src/main.d \
 ./Src/pwm.d \
+./Src/rcc.d \
 ./Src/syscalls.d \
 ./Src/sysmem.d 
 
@@ -39,7 +42,7 @@ Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/adc.cyclo ./Src/adc.d ./Src/adc.o ./Src/adc.su ./Src/fan_controller.cyclo ./Src/fan_controller.d ./Src/fan_controller.o ./Src/fan_controller.su ./Src/isr.cyclo ./Src/isr.d ./Src/isr.o ./Src/isr.su ./Src/main.cyclo ./Src/main.d ./Src/main.o ./Src/main.su ./Src/pwm.cyclo ./Src/pwm.d ./Src/pwm.o ./Src/pwm.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+	-$(RM) ./Src/adc.cyclo ./Src/adc.d ./Src/adc.o ./Src/adc.su ./Src/fan_controller.cyclo ./Src/fan_controller.d ./Src/fan_controller.o ./Src/fan_controller.su ./Src/isr.cyclo ./Src/isr.d ./Src/isr.o ./Src/isr.su ./Src/main.cyclo ./Src/main.d ./Src/main.o ./Src/main.su ./Src/pwm.cyclo ./Src/pwm.d ./Src/pwm.o ./Src/pwm.su ./Src/rcc.cyclo ./Src/rcc.d ./Src/rcc.o ./Src/rcc.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
 
 .PHONY: clean-Src
 
