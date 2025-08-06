@@ -34,5 +34,5 @@
 #define GPIOB_BRR           (*(volatile unsigned int *)(GPIOB_PERIPH + GPIO_BRR_OFFSET))
 #define GPIOB_LCKR          (*(volatile unsigned int *)(GPIOB_PERIPH + GPIO_LCKR_OFFSET))
 
-
+void gpio_init(void);
 #endif /* GPIO_H_ */

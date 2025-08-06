@@ -9,6 +9,7 @@
 #define ADC_H_
 
 #include "base.h"
+#include <stdint.h>
 
 #define ADC_SR_OFFSET      (0x00)
 #define ADC_CR1_OFFSET     (0x04)
@@ -52,4 +53,6 @@
 #define ADC1_JDR4          (*(volatile unsigned int *)(ADC1_PERIPH + ADC_JDR4_OFFSET))
 #define ADC1_DR            (*(volatile unsigned int *)(ADC1_PERIPH + ADC_DR_OFFSET))
 
+uint16_t adc_read(void);
+void adc_init(void);
 #endif /* ADC_H_ */

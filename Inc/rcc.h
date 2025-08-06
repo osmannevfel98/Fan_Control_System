@@ -10,8 +10,6 @@
 
 #include "base.h"
 
-void rcc_setup();
-
 #define RCC_CR_OFFSET       (0x00)
 #define RCC_CFGR_OFFSET     (0x04)
 #define RCC_CIR_OFFSET      (0x08)

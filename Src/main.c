@@ -21,65 +21,12 @@
 #include "tim.h"
 #include "rcc.h"
 
-void setup(){
-
-  RCC_APB2ENR |= (1 << 2); // Enable GPIOA
-
-  /*
-   * PB6 pinini PWM çıkışı için Alternate Function Output Push-Pull moduna al.
-   * Neden PB6? Çünkü PB6 pinini TIM4_CH1 olarak kullanılabilir.
-   * Buna Alternate Function tablosundan bakabilirsin.
-   * TIM2/3/4/5_CHx | Output compare channel x | Alternate function push-pull
-   *
-   * RCC->APB2ENR GPIOB clock enable
-   * GPIOB->CRL as AFIO Push-Pull (b1011)
-   * RCC->APB1ENR TIM4 clock enable
-   *  Timer 4 ayarlarını yap (PSC ARR ve CCR1)
-   *  Timer PWM moduna al ve çıkışı etkinleştir
-   *  Timer’ı başlat
-   */
-
-    RCC_APB2ENR |= (1 << 3); // Enable GPIOB
-    GPIOB_CRL &= ~(0xF << 24); // Clear PB6
-    GPIOB_CRL |= (0xB << 24); // Set PB6 as AFIO Push-Pull
-    RCC_APB1ENR |= (1 << 2); // Enable TIM4
-
-
-
-    /*
-     * ADC başlatma
-     *  PA0 pinini analog input yap. ADC1 ile sürekli sıcaklık oku.
-     *  GPIOA_CRL → PA0 için analog moduna alınmalı (0b0000).
-     *  ADC1_CR2 → ADON, SWSTART
-     *  ADC1_SQR3 → Kanal seçimi (0)
-     *  ADC1_DR → Sonuç okunacak yer
-     */
-     RCC_APB2ENR |= (1 << 9); // Enable ADC1
-     GPIOA_CRL &= ~(0xF << 0); // Clear PA0
-     GPIOA_CRL |= (0x0 << 0); // Set PA0 as analog input
-     ADC1_CR2 |= (1 << 0); // Enable ADC1
-     ADC1_CR2 |= (1 << 22); // Enable SWSTART
-     ADC1_SQR3 |= (0 << 0); // Set channel 0
-     ADC1_DR |= (0 << 0); // Set ADC1_DR as result register
-
-
-     /*
-      * Fan kontrol döngüsü
-      * ADC değerine göre CCR1’i ayarlayarak duty cycle’ı dinamik güncelle
-      * ADC değeri 0–4095 arasıysa:
-      * duty = (adc_val * MAX_DUTY) / 4095;
-      * TIM4_CCR1 = duty;
-      */
-
-}
-
-
 #include <stdint.h>
 
 
 int main(void)
-
 {
-	rcc_setup();
+	gpio_init();
+	adc_init();
 	for(;;);
 }
